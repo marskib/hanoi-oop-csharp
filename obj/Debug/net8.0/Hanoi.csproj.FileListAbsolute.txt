@@ -12,3 +12,4 @@ C:\Users\IEUser\source\repos\Hanoi\obj\Debug\net8.0\refint\Hanoi.dll
 C:\Users\IEUser\source\repos\Hanoi\obj\Debug\net8.0\Hanoi.pdb
 C:\Users\IEUser\source\repos\Hanoi\obj\Debug\net8.0\Hanoi.genruntimeconfig.cache
 C:\Users\IEUser\source\repos\Hanoi\obj\Debug\net8.0\ref\Hanoi.dll
+C:\Users\IEUser\source\repos\Hanoi\obj\Debug\net8.0\Hanoi.sourcelink.json

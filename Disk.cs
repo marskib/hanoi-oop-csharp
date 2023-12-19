@@ -13,18 +13,17 @@
             _id = id;
         }
 
-        public int GetWidth()
+        public int Width
         //Width of a disk depends on its place in the initial tower.
         //This place is determined by the constructor during building of the first tower
         //and equals _id (which is preserved through the entire game).
         {
-            return Utilities.SzerPdst - 2 * _id;
+            get { return Utilities.SzerPdst - 2 * _id; }
         }
 
         public void Print(char pattern)
         {
-            int width = GetWidth();
-            for (int i = 0; i < width; i++)
+            for (int i = 0; i < Width; i++)
                 Console.Write(pattern);
         }
 

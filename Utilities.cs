@@ -18,25 +18,5 @@
             Console.CursorTop = y;
         }
 
-        public static ConsoleColor GetDiskColor(int diskID)
-        {
-            switch (diskID)
-            {
-                case 0: return ConsoleColor.Green; break;
-                case 1: return ConsoleColor.Red; break;
-                case 2: return ConsoleColor.White; break;
-                case 3: return ConsoleColor.Blue; break;
-                case 4: return ConsoleColor.Yellow; break;
-                case 5: return ConsoleColor.DarkRed; break;
-                case 6: return ConsoleColor.DarkGreen; break;
-                case 8: return ConsoleColor.Green; break;
-                case 9: return ConsoleColor.DarkBlue; break;
-                case 10: return ConsoleColor.Yellow; break;
-                case 11: return ConsoleColor.Red; break;
-                default: return ConsoleColor.White;
-            }
-        }
-
-
     }
 }

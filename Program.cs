@@ -27,7 +27,7 @@ namespace Hanoi
 
         static void Hanoi(int n, Tower Sk, Tower Dk, Tower Pos)
         //Parameters:
-        //n -  number of disks
+        //n -  number of _disks
         //Sk - Skad / Source
         //Dk - Dokad / Destination
         //Pos - Pozycja Srodkowa / Position in the Middle (Auxiliary Position)
@@ -61,7 +61,7 @@ namespace Hanoi
             Console.Clear();
             Console.CursorVisible = false;
 
-            //Number od disks:
+            //Number od _disks:
             int n = 4;
             movesToEnd = TotalMoves(n);
             Console.Write("Do wykonania ruchow: " + movesToEnd);
@@ -73,7 +73,7 @@ namespace Hanoi
             stosA = new Tower(kA);
             stosB = new Tower(kB);
             stosC = new Tower(kC);
-            //Putting disks on 1st stack and initial drawing of the 1st stack;
+            //Putting _disks on 1st stack and initial drawing of the 1st stack;
             //the idx `i' of the for loop will be the disk's ID:
             for (int i = 0; i < n; i++)
             {
@@ -116,7 +116,7 @@ uses crt,dos;
       sledz,spowalniac:boolean;
       Sytuacja:array[Stosy] of record
                                  ile:0..maxkr;
-                                 disks:array[1..maxkr] of 1..maxkr
+                                 _disks:array[1..maxkr] of 1..maxkr
                                end;
 
 
@@ -174,13 +174,13 @@ uses crt,dos;
     var dlug,rob:integer;
     Begin
       if sledz then ch:=readkey;
-      with Sytuacja[Sk] do rob:=disks[ile];
+      with Sytuacja[Sk] do rob:=_disks[ile];
       dlug:=szerpdst-2*(rob-1);
       Rysuj(Sk,dlug,' ');
       with Sytuacja[Sk] do ile:=ile-1;
       with Sytuacja[Dk] do ile:=ile+1;
       Rysuj(Dk,dlug,chr(czlon));
-      with Sytuacja[Dk] do disks[ile]:=rob;   (* ten co przyszedl na stos *)
+      with Sytuacja[Dk] do _disks[ile]:=rob;   (* ten co przyszedl na stos *)
     End;
 
  Procedure Hanoi(n:integer; Sk,Dk,Pos:Stosy);
@@ -244,7 +244,7 @@ uses crt,dos;
    gotoxy(60,23);write(movesToEnd:4);
    with Sytuacja[A] do begin
      ile:=n;
-     for i:=1 to n do disks[i]:=i;
+     for i:=1 to n do _disks[i]:=i;
    end;
    Sytuacja[B].ile:=0; sytuacja[C].ile:=0;
    Hanoi(n,A,C,B)
