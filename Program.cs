@@ -9,9 +9,9 @@ namespace Hanoi
         static bool czySpowalniac = true;
         static int waitTime = 90;
 
-        static Tower stosA;
-        static Tower stosB;
-        static Tower stosC;
+        static Tower towerA;
+        static Tower towerB;
+        static Tower towerC;
 
         static int TotalMoves(int n)
         {
@@ -70,14 +70,14 @@ namespace Hanoi
             czySpowalniac = true;
             waitTime = 500;
             //
-            stosA = new Tower(kA);
-            stosB = new Tower(kB);
-            stosC = new Tower(kC);
+            towerA = new Tower(kA);
+            towerB = new Tower(kB);
+            towerC = new Tower(kC);
             //Putting _disks on 1st stack and initial drawing of the 1st stack;
             //the idx `i' of the for loop will be the disk's ID:
             for (int i = 0; i < n; i++)
             {
-                stosA.PutDisk(new Disk(i));
+                towerA.PutDisk(new Disk(i));
             }
             //
             gotoXY(kA, Wd + 1); Console.Write('A');
@@ -91,7 +91,7 @@ namespace Hanoi
             gotoXY(0, Wd + 4);
             Console.WriteLine("                                        ");
             //
-            Hanoi(n, stosA, stosC, stosB);
+            Hanoi(n, towerA, towerC, towerB);
             //
             //odstep pod rysunkiem:
             gotoXY(kA, Wd + 5);
