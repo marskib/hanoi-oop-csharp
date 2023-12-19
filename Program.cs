@@ -25,20 +25,20 @@ namespace Hanoi
             }
         }
 
-        static void Hanoi(int n, Tower Sk, Tower Dk, Tower Pos)
+        static void Hanoi(int n, Tower Src, Tower Dst, Tower Aux)
         //Parameters:
         //n -  number of _disks
-        //Sk - Skad / Source
-        //Dk - Dokad / Destination
-        //Pos - Pozycja Srodkowa / Position in the Middle (Auxiliary Position)
+        //Src - Skad / Source
+        //Dst - Dokad / Destination
+        //Aux - Pozycja Srodkowa / Position in the Middle (Auxiliary Position)
         {
             if (n > 0)
             {
-                Hanoi(n - 1, Sk, Pos, Dk);  //now Pos is (temporary) Destination, Dk is auxiliary
+                Hanoi(n - 1, Src, Aux, Dst);  //now Aux is (temporary) Destination, Dst is auxiliary
 
                 Poczekaj(waitTime);
 
-                Sk.Przenies(Dk);
+                Src.Przenies(Dst);
 
                 movesToEnd--;
 
@@ -46,7 +46,7 @@ namespace Hanoi
                 Console.Write("Pozostalo:           " + movesToEnd + "   ");
                 gotoXY(0, 1);
 
-                Hanoi(n - 1, Pos, Dk, Sk);
+                Hanoi(n - 1, Aux, Dst, Src);
             }
 
             static void Poczekaj(int waitTime)
@@ -61,8 +61,9 @@ namespace Hanoi
             Console.Clear();
             Console.CursorVisible = false;
 
-            //Number od _disks:
-            int n = 4;
+            //Number of disks:
+            int n = 5;
+            //
             movesToEnd = TotalMoves(n);
             Console.Write("Do wykonania ruchow: " + movesToEnd);
             gotoXY(0, 1);
@@ -170,28 +171,28 @@ uses crt,dos;
       for i:=1 to dlug do write(co);
     End;
 
-  Procedure Przenies(Sk,Dk:Stosy);
+  Procedure Przenies(Src,Dst:Stosy);
     var dlug,rob:integer;
     Begin
       if sledz then ch:=readkey;
-      with Sytuacja[Sk] do rob:=_disks[ile];
+      with Sytuacja[Src] do rob:=_disks[ile];
       dlug:=szerpdst-2*(rob-1);
-      Rysuj(Sk,dlug,' ');
-      with Sytuacja[Sk] do ile:=ile-1;
-      with Sytuacja[Dk] do ile:=ile+1;
-      Rysuj(Dk,dlug,chr(czlon));
-      with Sytuacja[Dk] do _disks[ile]:=rob;   (* ten co przyszedl na stos *)
+      Rysuj(Src,dlug,' ');
+      with Sytuacja[Src] do ile:=ile-1;
+      with Sytuacja[Dst] do ile:=ile+1;
+      Rysuj(Dst,dlug,chr(czlon));
+      with Sytuacja[Dst] do _disks[ile]:=rob;   (* ten co przyszedl na stos *)
     End;
 
- Procedure Hanoi(n:integer; Sk,Dk,Pos:Stosy);
+ Procedure Hanoi(n:integer; Src,Dst,Aux:Stosy);
    Begin
      if n>0 then begin
-       Hanoi(n-1,Sk,Pos,Dk);
+       Hanoi(n-1,Src,Aux,Dst);
        if spowalniac then Spowalniacz(waitTime);
-       Przenies(Sk,Dk);
+       Przenies(Src,Dst);
        movesToEnd:=movesToEnd-1;
        gotoxy(60,23);write('    ');gotoxy(60,23);write(movesToEnd:4);
-       Hanoi(n-1,Pos,Dk,Sk)
+       Hanoi(n-1,Aux,Dst,Src)
      end;
    End;
 

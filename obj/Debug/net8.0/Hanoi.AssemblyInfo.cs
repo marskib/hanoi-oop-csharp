@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Hanoi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+84eb6fd27d347fb0a860ac7906c42dfd547b80fe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7bb416b97110729b6ea47546879c119d57176dac")]
 [assembly: System.Reflection.AssemblyProductAttribute("Hanoi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Hanoi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
